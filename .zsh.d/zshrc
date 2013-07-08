@@ -1,0 +1,33 @@
+# Lines configured by zsh-newuser-install
+HISTFILE=$ZDOTDIR/.histfile
+HISTSIZE=1000
+SAVEHIST=1000
+setopt appendhistory notify
+unsetopt beep
+bindkey -e
+# End of lines configured by zsh-newuser-install
+
+# append command to history file once executed
+setopt inc_append_history
+
+# Not all systems have `vim`, but I like it when they do.
+[[ -x $(whence -p vim) ]] && export EDITOR=$(whence -p vim)
+[[ -n "$DISPLAY" && -x $(whence -p gvim) ]] && export EDITOR=$(whence -p gvim)
+
+# old (and/or crappy) versions of `grep` choke on this - make it safe
+grep -q --color '.' . 2> /dev/null && export GREP_OPTIONS='--color'
+
+# Store aliases elsewhere.
+[ -f $ZDOTDIR/aliases ] && source $ZDOTDIR/aliases
+# Use a customized prompt.
+[ -f $ZDOTDIR/prompt ] && source $ZDOTDIR/prompt
+
+
+# The following lines were added by compinstall
+
+zstyle ':completion:*' matcher-list '' 'r:|[._-]=* r:|=*' 'm:{[:lower:]}={[:upper:]}'
+zstyle :compinstall filename '/home/mbatema/.zshrc'
+
+autoload -Uz compinit
+compinit
+# End of lines added by compinstall
