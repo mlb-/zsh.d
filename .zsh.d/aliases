@@ -12,6 +12,6 @@ cdmkdir () {
 }
 
 cdtemp () {
-	cdmkdir "${1}"
+	cd $(mktemp -d temp.XXXXX || exit $?)
 }
 
