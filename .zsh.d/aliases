@@ -2,12 +2,22 @@
 alias timeset='sudo ntpdate -u -b pool.ntp.org'
 
 function duf {
-du -sk "$@" | sort -n | while read size fname; do for unit in k M G T P E Z Y; do if [ $size -lt 1024 ]; then echo -e "${size}${unit}\t${fname}"; break; fi; size=$((size/1024)); done; done
+	du -sk "$@" |\
+		sort -n |\
+		while read size fname; do
+			for unit in k M G T P E Z Y; do
+				if [ $size -lt 1024 ]; then
+					echo -e "${size}${unit}\t${fname}"
+					break
+				fi
+				size=$((size/1024))
+			done
+		done
 }
 
 cdmkdir () {
 	## create a new directory and cd into it
-	mkdir -p "${1}"
+	mkdir -p "${1}" && \
 	cd "${1}"
 }
 
@@ -15,3 +25,4 @@ cdtemp () {
 	cd $(mktemp -d temp.XXXXX || exit $?)
 }
 
+# vim: ft=zsh et
