@@ -6,3 +6,5 @@ export PATH=/home/mbatema/bin:$PATH
 VBOX_USB=usbfs
 
 source ~/.profile
+
+[[ -s /home/mbatema/.nvm/nvm.sh ]] && . /home/mbatema/.nvm/nvm.sh # This loads NVM
