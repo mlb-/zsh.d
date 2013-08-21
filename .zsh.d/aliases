@@ -25,4 +25,8 @@ cdtemp () {
 	cd $(mktemp -d temp.XXXXX || exit $?)
 }
 
+[[ -x $(whence -p python2) ]] && alias python='python2'
+[[ -x $HOME/.spark/spark ]] && alias spark='$HOME/.spark/spark'
+[[ -x $(whence rdesktop) ]] && alias rdesktop='rdesktop -r clipboard:PRIMARYCLIPBOARD'
+
 # vim: ft=zsh et
