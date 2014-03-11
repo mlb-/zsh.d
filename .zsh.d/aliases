@@ -29,4 +29,7 @@ cdtemp () {
 [[ -x $HOME/.spark/spark ]] && alias spark='$HOME/.spark/spark'
 [[ -x $(whence rdesktop) ]] && alias rdesktop='rdesktop -r clipboard:PRIMARYCLIPBOARD'
 
+# System specific aliases.
+[ -f $ZDOTDIR/`uname -s`/aliases ] && source $ZDOTDIR/`uname -s`/aliases
+
 # vim: ft=zsh et
