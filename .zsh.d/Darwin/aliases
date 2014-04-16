@@ -1,0 +1,1 @@
+[[ -x $(whence gls) ]] && alias ls='gls --color=auto -F'
