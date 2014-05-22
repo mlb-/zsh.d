@@ -28,6 +28,8 @@ grep -q --color '.' . 2> /dev/null && export GREP_OPTIONS='--color'
 # Use a customized prompt.
 [ -f $ZDOTDIR/prompt ] && source $ZDOTDIR/prompt
 
+# Source plan9 setup when it exists.
+[[ -d "$HOME/P" ]] && source $ZDOTDIR/plan9
 
 # The following lines were added by compinstall
 
