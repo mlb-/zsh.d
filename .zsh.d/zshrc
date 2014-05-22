@@ -14,6 +14,9 @@ setopt inc_append_history
 [[ -x $(whence -p vim) ]] && export EDITOR=$(whence -p vim)
 [[ -n "$DISPLAY" && -x $(whence -p gvim) ]] && export EDITOR=$(whence -p gvim)
 
+# When EDITOR is (g)vim, add foreground/nofork flag so Git behaves correctly.
+[[ ${EDITOR} != ${EDITOR%%vim} ]] && export GIT_EDITOR="$EDITOR -f"
+
 # old (and/or crappy) versions of `grep` choke on this - make it safe
 grep -q --color '.' . 2> /dev/null && export GREP_OPTIONS='--color'
 
