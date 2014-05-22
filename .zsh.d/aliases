@@ -1,5 +1,5 @@
 
-[[ -x $(whence ntpdate) ]] && alias timeset='sudo ntpdate -u -b pool.ntp.org'
+[[ -x /usr/sbin/ntpdate ]] && alias timeset='sudo ntpdate -u -b pool.ntp.org'
 
 function duf {
 	du -sk "$@" |\
