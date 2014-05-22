@@ -17,6 +17,9 @@ setopt inc_append_history
 # When EDITOR is (g)vim, add foreground/nofork flag so Git behaves correctly.
 [[ ${EDITOR} != ${EDITOR%%vim} ]] && export GIT_EDITOR="$EDITOR -f"
 
+# Set a default for BROWSER when available.
+[[ -x $(whence -p chromium) ]] && export BROWSER=$(whence -p chromium)
+
 # old (and/or crappy) versions of `grep` choke on this - make it safe
 grep -q --color '.' . 2> /dev/null && export GREP_OPTIONS='--color'
 
