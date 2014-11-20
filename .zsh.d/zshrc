@@ -19,6 +19,7 @@ setopt inc_append_history
 
 # Set a default for BROWSER when available.
 [[ -x $(whence -p chromium) ]] && export BROWSER=$(whence -p chromium)
+[[ -x $(whence -p chromium-browser) ]] && export BROWSER=$(whence -p chromium-browser)
 
 # old (and/or crappy) versions of `grep` choke on this - make it safe
 grep -q --color '.' . 2> /dev/null && export GREP_OPTIONS='--color'
