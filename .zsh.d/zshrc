@@ -29,6 +29,9 @@ grep -q --color '.' . 2> /dev/null && export GREP_OPTIONS='--color'
 # Use a customized prompt.
 [ -f $ZDOTDIR/prompt ] && source $ZDOTDIR/prompt
 
+# Configure `fuck` when installed
+[[ -x $(whence -p fuck) ]] && eval $(thefuck --alias)
+
 # Source plan9 setup when it exists.
 [[ -d "$HOME/P" ]] && source $ZDOTDIR/plan9
 
