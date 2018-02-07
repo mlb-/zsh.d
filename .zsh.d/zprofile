@@ -16,3 +16,5 @@ if [ -f "${HOME}/.gpg-agent-info" ]; then
 fi
 
 [[ -s $HOME/.nvm/nvm.sh ]] && . $HOME/.nvm/nvm.sh # This loads NVM
+
+[[ -x $(whence ntfy) ]] && eval "$(ntfy shell-integration)"
