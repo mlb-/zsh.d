@@ -33,3 +33,6 @@ fi
 [[ -x $(whence pyenv-virtualenv-init) ]] && eval "$(pyenv virtualenv-init -)"
 
 [[ -x $(whence ntfy) ]] && eval "$(ntfy shell-integration)"
+
+[[ -d "/usr/local/opt/sbt@0.13/bin" ]] && \
+    export PATH="/usr/local/opt/sbt@0.13/bin:$PATH"
