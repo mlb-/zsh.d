@@ -19,4 +19,6 @@ fi
 
 [[ -s $HOME/.nvm/nvm.sh ]] && . $HOME/.nvm/nvm.sh # This loads NVM
 
+[[ -x $(whence pyenv) ]] && eval "$(pyenv init -)"
+
 [[ -x $(whence ntfy) ]] && eval "$(ntfy shell-integration)"
