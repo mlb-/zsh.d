@@ -21,4 +21,6 @@ fi
 
 [[ -x $(whence pyenv) ]] && eval "$(pyenv init -)"
 
+[[ -x $(whence pyenv-virtualenv-init) ]] && eval "$(pyenv virtualenv-init -)"
+
 [[ -x $(whence ntfy) ]] && eval "$(ntfy shell-integration)"
