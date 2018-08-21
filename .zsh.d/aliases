@@ -37,4 +37,14 @@ cdtemp () {
 
 alias cockroach='docker exec -i apx-metrics_crdb_1 /cockroach/cockroach'
 
+fluent-local-logs () {
+    find \
+        /var/log/td-agent \
+        -type f \
+        -not -iname '*.log' \
+        -mtime -2d \
+        | xargs tail -f \
+        | cut -d'	' -f3
+}
+
 # vim: ft=zsh et
