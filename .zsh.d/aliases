@@ -35,4 +35,6 @@ cdtemp () {
 # System specific aliases.
 [ -f $ZDOTDIR/`uname -s`/aliases ] && source $ZDOTDIR/`uname -s`/aliases
 
+alias cockroach='docker exec -i apx-metrics_crdb_1 /cockroach/cockroach'
+
 # vim: ft=zsh et
