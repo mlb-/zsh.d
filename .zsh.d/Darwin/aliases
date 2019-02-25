@@ -2,4 +2,6 @@
 
 [[ -x $(whence gls) ]] && alias ls='gls --color=auto -F'
 
+alias isodate='date -u +"%Y-%m-%dT%H:%M:%SZ"'
+
 alias dnsflush='sudo killall -HUP mDNSResponder'
