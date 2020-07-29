@@ -47,4 +47,19 @@ fluent-local-logs () {
         | cut -d'	' -f3
 }
 
+function f_vpn () {
+    WIRELESS_INTERFACE=en0
+    TUNNEL_INTERFACE=ppp0
+    GATEWAY=$(netstat -nrf inet | grep default | grep $WIRELESS_INTERFACE | awk '{print $2}')
+    echo "Resetting routes with gateway => $GATEWAY"
+    echo
+    sudo route -n delete default -ifscope $WIRELESS_INTERFACE
+    sudo route -n delete -net default -interface $TUNNEL_INTERFACE
+    sudo route -n add -net default $GATEWAY
+    for subnet in 10.0 10.1 10.2 10.199
+    do
+        sudo route -n add -net $subnet -interface $TUNNEL_INTERFACE
+    done
+}
+
 # vim: ft=zsh et
