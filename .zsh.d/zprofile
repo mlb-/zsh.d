@@ -10,6 +10,8 @@ fi
 export PATH=$HOME/bin:$PATH
 
 [[ -d "/Applications/Emacs.app/Contents/MacOS/bin" ]] && export PATH=/Applications/Emacs.app/Contents/MacOS/bin:$PATH
+# Give me `airport` on my path, OS X
+[[ -d "/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources" ]] && export PATH=/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources:$PATH
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && export PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
