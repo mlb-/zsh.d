@@ -62,4 +62,12 @@ function f_vpn () {
     done
 }
 
+function git_stash_backup() {
+    awk '{ stashes[NR] = $2 } END {for (idx in stashes) { print "+" stashes[idx] ":refs/stash_backup/" ENVIRON["USER"] "/stash" (NR-idx) }}' .git/logs/refs/stash | xargs git push origin +$(cat .git/logs/refs/stash | git hash-object --stdin -w):refs/stash_backup/$USER/stash_reflog
+}
+
+function git_stash_backup_clear () {
+    git ls-remote origin "refs/stash_backup/$USER/*" | awk '{print ":" $2}' | xargs git push origin
+}
+
 # vim: ft=zsh et
