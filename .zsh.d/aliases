@@ -37,15 +37,7 @@ cdtemp () {
 
 alias cockroach='docker exec -i apx-metrics_crdb_1 /cockroach/cockroach'
 
-fluent-local-logs () {
-    find \
-        /var/log/td-agent \
-        -type f \
-        -not -iname '*.log' \
-        -mtime -2d \
-        | xargs tail -f \
-        | cut -d'	' -f3
-}
+alias fluent-local-logs='tail -f $(find /var/log/td-agent -type f -not -iname "*.log" -mtime -2d) | cut -d"	" -f3-'
 
 function f_vpn () {
     WIRELESS_INTERFACE=en0
